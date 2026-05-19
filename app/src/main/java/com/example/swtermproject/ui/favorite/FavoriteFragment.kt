@@ -1,0 +1,45 @@
+package com.example.swtermproject.ui.favorite
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.swtermproject.databinding.FragmentFavoriteBinding
+
+class FavoriteFragment : Fragment() {
+
+    private var _binding: FragmentFavoriteBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var viewModel: FavoriteViewModel
+    private lateinit var adapter: FavoriteAdapter
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(this)[FavoriteViewModel::class.java]
+        viewModel.init(requireContext())
+
+        adapter = FavoriteAdapter { place -> viewModel.removeFavorite(place) }
+        binding.rvFavorites.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = this@FavoriteFragment.adapter
+        }
+
+        viewModel.favorites.observe(viewLifecycleOwner) { favorites ->
+            adapter.submitList(favorites)
+            binding.tvEmpty.visibility = if (favorites.isEmpty()) View.VISIBLE else View.GONE
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}

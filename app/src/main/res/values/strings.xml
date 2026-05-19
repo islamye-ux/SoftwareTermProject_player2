@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">KoLi</string>
+    <string name="app_tagline">Korea Life Assistant</string>
+
+    <!-- Tabs -->
+    <string name="tab_map">Map</string>
+    <string name="tab_chat">AI Chat</string>
+    <string name="tab_favorites">Saved</string>
+    <string name="tab_phrases">Phrases</string>
+
+    <!-- Drawer -->
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="nav_language">Language</string>
+    <string name="nav_english">English</string>
+    <string name="nav_korean">Korean</string>
+    <string name="nav_chinese">Chinese</string>
+    <string name="nav_japanese">Japanese</string>
+    <string name="nav_vietnamese">Vietnamese</string>
+
+    <!-- Camera / OCR -->
+    <string name="btn_capture">Capture</string>
+    <string name="btn_gallery">Gallery</string>
+    <string name="btn_back">Back</string>
+    <string name="btn_use_result">Use Result</string>
+    <string name="label_original">Original</string>
+    <string name="label_translated">Translated</string>
+    <string name="no_text_detected">No Korean text detected. Try again.</string>
+    <string name="camera_permission_required">Camera permission is required.</string>
+
+    <!-- Chat -->
+    <string name="hint_message">Ask anything about life in Korea…</string>
+    <string name="btn_send">Send</string>
+    <string name="chat_welcome">Hi! I\'m KoLi, your Korea life assistant. Ask me anything about visas, healthcare, transport, or daily life in Korea!</string>
+    <string name="error_network">Network error. Please check your connection.</string>
+
+    <!-- Map -->
+    <string name="chip_hospital">Hospital</string>
+    <string name="chip_pharmacy">Pharmacy</string>
+    <string name="chip_government">Government</string>
+    <string name="chip_restaurant">Restaurant</string>
+    <string name="chip_subway">Subway</string>
+    <string name="location_permission_required">Location permission is required to find nearby places.</string>
+
+    <!-- Place Detail -->
+    <string name="btn_directions">Get Directions</string>
+    <string name="btn_favorite_add">Save Place</string>
+    <string name="btn_favorite_remove">Remove</string>
+    <string name="place_saved">Place saved!</string>
+    <string name="place_removed">Removed from saved places.</string>
+
+    <!-- Favorites -->
+    <string name="empty_favorites">No saved places yet.\nTap ★ on any place to save it.</string>
+
+    <!-- Phrases -->
+    <string name="section_emergency">Emergency</string>
+    <string name="section_hospital">Hospital</string>
+    <string name="section_transport">Transport</string>
+    <string name="section_food">Food &amp; Shopping</string>
+    <string name="section_government">Government</string>
+    <string name="tap_to_copy">Tap to copy</string>
+    <string name="copied">Copied!</string>
+    <string name="no_rating">No rating available</string>
+</resources>

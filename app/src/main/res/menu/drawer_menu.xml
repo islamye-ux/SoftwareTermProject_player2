@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_language_group"
+        android:title="@string/nav_language">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_language_en"
+                    android:title="@string/nav_english"
+                    android:checked="true" />
+                <item
+                    android:id="@+id/nav_language_ko"
+                    android:title="@string/nav_korean" />
+                <item
+                    android:id="@+id/nav_language_zh"
+                    android:title="@string/nav_chinese" />
+                <item
+                    android:id="@+id/nav_language_ja"
+                    android:title="@string/nav_japanese" />
+                <item
+                    android:id="@+id/nav_language_vi"
+                    android:title="@string/nav_vietnamese" />
+            </group>
+        </menu>
+    </item>
+
+</menu>
