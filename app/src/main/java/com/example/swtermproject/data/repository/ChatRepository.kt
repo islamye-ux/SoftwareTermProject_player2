@@ -6,23 +6,32 @@ import com.example.swtermproject.data.api.RetrofitClient
 import com.example.swtermproject.data.db.AppDatabase
 import com.example.swtermproject.data.db.entity.ChatHistoryEntity
 import com.example.swtermproject.data.model.ChatMessage
-import com.example.swtermproject.data.model.OpenAiRequest
+import com.example.swtermproject.data.model.GeminiContent
+import com.example.swtermproject.data.model.GeminiPart
+import com.example.swtermproject.data.model.GeminiRequest
+import com.example.swtermproject.data.model.GeminiSystemInstruction
 import com.example.swtermproject.util.Constants
 
 class ChatRepository(context: Context) {
-    private val api = RetrofitClient.openAiApi
+    private val api = RetrofitClient.geminiApi
     private val dao = AppDatabase.getInstance(context).chatHistoryDao()
 
-    private val systemMessage = ChatMessage(role = "system", content = Constants.SYSTEM_PROMPT)
-
     suspend fun sendMessage(history: List<ChatMessage>, userMessage: String): String {
-        val messages = mutableListOf(systemMessage)
-        messages.addAll(history.takeLast(10))
-        messages.add(ChatMessage(role = "user", content = userMessage))
+        val contents = mutableListOf<GeminiContent>()
+        history.takeLast(10).forEach { msg ->
+            val geminiRole = if (msg.role == "assistant") "model" else "user"
+            contents.add(GeminiContent(role = geminiRole, parts = listOf(GeminiPart(msg.content))))
+        }
+        contents.add(GeminiContent(role = "user", parts = listOf(GeminiPart(userMessage))))
 
-        val request = OpenAiRequest(model = Constants.OPENAI_MODEL, messages = messages)
-        val response = api.sendMessage("Bearer ${BuildConfig.OPENAI_API_KEY}", request)
-        return response.choices.first().message.content
+        val request = GeminiRequest(
+            contents = contents,
+            systemInstruction = GeminiSystemInstruction(
+                parts = listOf(GeminiPart(Constants.SYSTEM_PROMPT))
+            )
+        )
+        val response = api.generateContent(BuildConfig.GEMINI_API_KEY, request)
+        return response.candidates.first().content.parts.first().text
     }
 
     suspend fun saveMessage(role: String, content: String) {

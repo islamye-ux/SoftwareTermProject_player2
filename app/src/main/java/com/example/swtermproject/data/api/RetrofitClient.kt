@@ -19,13 +19,13 @@ object RetrofitClient {
         .readTimeout(30, TimeUnit.SECONDS)
         .build()
 
-    val openAiApi: OpenAiApi by lazy {
+    val geminiApi: GeminiApi by lazy {
         Retrofit.Builder()
-            .baseUrl(Constants.OPENAI_BASE_URL)
+            .baseUrl(Constants.GEMINI_BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(OpenAiApi::class.java)
+            .create(GeminiApi::class.java)
     }
 
     val translateApi: TranslateApi by lazy {

@@ -13,10 +13,8 @@ object Constants {
 
     const val DEFAULT_LANGUAGE = "en"
 
-    const val OPENAI_BASE_URL = "https://api.openai.com/"
+    const val GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/"
     const val TRANSLATE_BASE_URL = "https://translation.googleapis.com/"
-
-    const val OPENAI_MODEL = "gpt-3.5-turbo"
     const val SYSTEM_PROMPT = """You are a helpful assistant for foreigners living in Korea.
 Answer questions about daily life in Korea such as visa, healthcare, banking,
 transportation, housing, and culture. Always answer in the user's language

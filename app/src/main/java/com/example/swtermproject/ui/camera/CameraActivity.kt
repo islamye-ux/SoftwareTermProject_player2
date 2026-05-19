@@ -11,6 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import com.example.swtermproject.R
 import com.example.swtermproject.databinding.ActivityCameraBinding
 import com.example.swtermproject.util.Constants
 

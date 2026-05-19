@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -18,12 +20,12 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        val localProperties = java.util.Properties()
+        val localProperties = Properties()
         val localFile = rootProject.file("local.properties")
         if (localFile.exists()) localFile.inputStream().use { localProperties.load(it) }
 
         manifestPlaceholders["MAPS_API_KEY"] = localProperties.getProperty("MAPS_API_KEY", "")
-        buildConfigField("String", "OPENAI_API_KEY",    "\"${localProperties.getProperty("OPENAI_API_KEY", "")}\"")
+        buildConfigField("String", "GEMINI_API_KEY",     "\"${localProperties.getProperty("GEMINI_API_KEY", "")}\"")
         buildConfigField("String", "TRANSLATE_API_KEY", "\"${localProperties.getProperty("TRANSLATE_API_KEY", "")}\"")
         buildConfigField("String", "MAPS_API_KEY",      "\"${localProperties.getProperty("MAPS_API_KEY", "")}\"")
     }
