@@ -99,8 +99,7 @@ feature/*     individual features (merged into develop via PR)
 
 | Name | Role |
 |------|------|
-| Park Sejun | Camera OCR, ChatGPT integration, UI/UX, MainActivity |
-| [팀원 이름] | Google Maps, Places API, Room DB, Translate API |
+| Sejun , Yerik | Camera OCR, ChatGPT integration, UI/UX, MainActivity , Google Maps, Places API, Room DB, Translate API |
 
 ---
 
