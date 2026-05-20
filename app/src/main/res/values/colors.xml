@@ -1,19 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
+    <!-- Base -->
     <color name="white">#FFFFFFFF</color>
-    <color name="colorPrimary">#1565C0</color>
-    <color name="colorPrimaryVariant">#0D47A1</color>
-    <color name="colorPrimaryLight">#E3F2FD</color>
-    <color name="colorAccent">#FF6F00</color>
-    <color name="colorBackground">#F5F7FA</color>
+    <color name="black">#FF000000</color>
+
+    <!-- Apple Blue -->
+    <color name="colorPrimary">#0071E3</color>
+    <color name="colorPrimaryVariant">#0077ED</color>
+    <color name="colorPrimaryLight">#E8F3FD</color>
+    <color name="colorPrimaryDark">#004FA3</color>
+
+    <!-- Background — Apple light gray -->
+    <color name="colorBackground">#F5F5F7</color>
     <color name="colorSurface">#FFFFFF</color>
-    <color name="colorUserBubble">#1565C0</color>
-    <color name="colorAiBubble">#ECEFF1</color>
+    <color name="colorSurfaceVariant">#F5F5F7</color>
+
+    <!-- Text — Apple dark -->
+    <color name="colorTextPrimary">#1D1D1F</color>
+    <color name="colorTextSecondary">#6E6E73</color>
+    <color name="colorTextTertiary">#AEAEB2</color>
+
+    <!-- Divider / Border -->
+    <color name="colorDivider">#D2D2D7</color>
+    <color name="colorBorder">#E5E5EA</color>
+
+    <!-- Chat bubbles -->
+    <color name="colorUserBubble">#0071E3</color>
+    <color name="colorAiBubble">#F5F5F7</color>
     <color name="colorUserText">#FFFFFF</color>
-    <color name="colorAiText">#212121</color>
-    <color name="colorTextPrimary">#212121</color>
-    <color name="colorTextSecondary">#757575</color>
-    <color name="colorDivider">#E0E0E0</color>
-    <color name="colorRating">#FFA000</color>
+    <color name="colorAiText">#1D1D1F</color>
+
+    <!-- Accent / Rating -->
+    <color name="colorAccent">#0071E3</color>
+    <color name="colorRating">#FF9F0A</color>
+
+    <!-- Error -->
+    <color name="colorError">#FF3B30</color>
 </resources>
