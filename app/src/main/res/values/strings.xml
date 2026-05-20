@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">KoLi</string>
-    <string name="app_tagline">Korea Life Assistant</string>
+    <string name="app_tagline">Your bridge to life in Korea</string>
 
     <!-- Tabs -->
     <string name="tab_map">Map</string>
