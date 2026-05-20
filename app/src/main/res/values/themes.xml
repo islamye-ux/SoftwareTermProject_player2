@@ -2,7 +2,7 @@
 
     <style name="Base.Theme.Swtermproject" parent="Theme.Material3.Light.NoActionBar">
 
-        <!-- ── Colors ─────────────────────────────────────────── -->
+        <!-- Colors -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorPrimaryContainer">@color/colorPrimaryLight</item>
@@ -17,18 +17,16 @@
         <item name="colorOutline">@color/colorBorder</item>
         <item name="colorError">@color/colorError</item>
 
-        <!-- ── Shape — Apple-style rounded corners ────────────── -->
+        <!-- Shape — subtle rounding -->
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.KoLi.Small</item>
         <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.KoLi.Medium</item>
         <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.KoLi.Large</item>
-        <!-- ── Typography — Inter font ────────────────────────── -->
+
+        <!-- Typography -->
         <item name="fontFamily">@font/inter</item>
         <item name="android:fontFamily">@font/inter</item>
 
-        <!-- ── Elevation — subtle shadows ─────────────────────── -->
-        <item name="elevationOverlayEnabled">false</item>
-
-        <!-- ── Status bar ──────────────────────────────────────── -->
+        <!-- Status bar -->
         <item name="android:statusBarColor">@color/colorBackground</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         <item name="android:navigationBarColor">@color/colorSurface</item>
@@ -37,49 +35,27 @@
 
     <style name="Theme.Swtermproject" parent="Base.Theme.Swtermproject" />
 
-    <!-- ── Shape Appearances ──────────────────────────────────── -->
+    <!-- Shape — toned down -->
     <style name="ShapeAppearance.KoLi.Small" parent="ShapeAppearance.Material3.SmallComponent">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">10dp</item>
+        <item name="cornerSize">6dp</item>
     </style>
 
     <style name="ShapeAppearance.KoLi.Medium" parent="ShapeAppearance.Material3.MediumComponent">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">16dp</item>
+        <item name="cornerSize">10dp</item>
     </style>
 
     <style name="ShapeAppearance.KoLi.Large" parent="ShapeAppearance.Material3.LargeComponent">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">20dp</item>
+        <item name="cornerSize">14dp</item>
     </style>
 
-    <!-- ── Splash — clean white Apple style ───────────────────── -->
+    <!-- Splash -->
     <style name="Theme.Swtermproject.Splash" parent="Theme.Material3.Light.NoActionBar">
-        <item name="android:windowBackground">@color/white</item>
-        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="android:statusBarColor">@color/colorBackground</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
-    </style>
-
-    <!-- ── Card style ──────────────────────────────────────────── -->
-    <style name="KoLi.CardView" parent="Widget.Material3.CardView.Elevated">
-        <item name="cardCornerRadius">16dp</item>
-        <item name="cardElevation">2dp</item>
-        <item name="strokeColor">@color/colorBorder</item>
-        <item name="strokeWidth">0.5dp</item>
-    </style>
-
-    <!-- ── Button style ────────────────────────────────────────── -->
-    <style name="KoLi.Button" parent="Widget.Material3.Button">
-        <item name="cornerRadius">12dp</item>
-        <item name="android:fontFamily">@font/inter</item>
-        <item name="android:letterSpacing">0.01</item>
-    </style>
-
-    <!-- ── Toolbar ─────────────────────────────────────────────── -->
-    <style name="KoLi.Toolbar" parent="Widget.Material3.Toolbar">
-        <item name="android:background">@color/colorSurface</item>
-        <item name="titleTextColor">@color/colorTextPrimary</item>
-        <item name="android:elevation">0dp</item>
     </style>
 
 </resources>
