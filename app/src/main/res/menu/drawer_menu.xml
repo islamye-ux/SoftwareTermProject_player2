@@ -13,15 +13,6 @@
                 <item
                     android:id="@+id/nav_language_ko"
                     android:title="@string/nav_korean" />
-                <item
-                    android:id="@+id/nav_language_zh"
-                    android:title="@string/nav_chinese" />
-                <item
-                    android:id="@+id/nav_language_ja"
-                    android:title="@string/nav_japanese" />
-                <item
-                    android:id="@+id/nav_language_vi"
-                    android:title="@string/nav_vietnamese" />
             </group>
         </menu>
     </item>

@@ -56,9 +56,6 @@ class MainActivity : AppCompatActivity() {
         binding.navView.setNavigationItemSelectedListener { item ->
             currentLanguage = when (item.itemId) {
                 R.id.nav_language_ko -> "ko"
-                R.id.nav_language_zh -> "zh"
-                R.id.nav_language_ja -> "ja"
-                R.id.nav_language_vi -> "vi"
                 else -> "en"
             }
             item.isChecked = true
