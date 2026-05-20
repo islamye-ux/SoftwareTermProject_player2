@@ -15,6 +15,9 @@ interface FavoritePlaceDao {
     @Delete
     suspend fun delete(place: FavoritePlaceEntity)
 
+    @Query("DELETE FROM favorite_places WHERE placeId = :placeId")
+    suspend fun deleteById(placeId: String)
+
     @Query("SELECT EXISTS(SELECT 1 FROM favorite_places WHERE placeId = :placeId)")
     suspend fun isFavorite(placeId: String): Boolean
 }

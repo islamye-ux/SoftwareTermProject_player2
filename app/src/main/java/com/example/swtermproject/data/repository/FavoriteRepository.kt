@@ -27,5 +27,7 @@ class FavoriteRepository(context: Context) {
 
     suspend fun removeFavorite(place: FavoritePlaceEntity) = dao.delete(place)
 
+    suspend fun removeFavorite(placeId: String) = dao.deleteById(placeId)
+
     suspend fun isFavorite(placeId: String) = dao.isFavorite(placeId)
 }

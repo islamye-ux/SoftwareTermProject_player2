@@ -70,7 +70,9 @@ class PlaceDetailActivity : AppCompatActivity() {
         binding.fabFavorite.setOnClickListener {
             lifecycleScope.launch {
                 if (favoriteRepository.isFavorite(place.id)) {
-                    Toast.makeText(this@PlaceDetailActivity, R.string.place_saved, Toast.LENGTH_SHORT).show()
+                    favoriteRepository.removeFavorite(place.id)
+                    binding.fabFavorite.setImageResource(android.R.drawable.btn_star_big_off)
+                    Toast.makeText(this@PlaceDetailActivity, R.string.place_removed, Toast.LENGTH_SHORT).show()
                 } else {
                     favoriteRepository.addFavorite(place)
                     binding.fabFavorite.setImageResource(android.R.drawable.btn_star_big_on)
