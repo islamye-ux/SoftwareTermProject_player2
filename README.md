@@ -9,11 +9,11 @@ Combines **camera OCR translation**, **AI life Q&A**, and **nearby place search*
 
 | Feature | Description |
 |---------|-------------|
-| 📷 Camera OCR | Point camera at Korean text → instant translation via ML Kit + Google Translate |
-| 🤖 AI Chat | Ask anything about Korean life (visa, healthcare, banking) powered by ChatGPT |
-| 🗺️ Nearby Places | Find hospitals, pharmacies, government offices, restaurants around you |
-| ⭐ Favorites | Save frequently visited places |
-| 💬 Phrase Book | Essential Korean phrases with one-tap clipboard copy |
+| Camera OCR | Point camera at Korean text → instant translation via ML Kit + Google Translate |
+| AI Chat | Ask anything about Korean life (visa, healthcare, banking) powered by ChatGPT |
+| Nearby Places | Find hospitals, pharmacies, government offices, restaurants around you |
+| Favorites | Save frequently visited places |
+| Phrase Book | Essential Korean phrases with one-tap clipboard copy |
 
 ---
 
@@ -97,21 +97,7 @@ feature/*     individual features (merged into develop via PR)
 
 ## Team
 
-| Name | Role |
-|------|------|
-| Sejun , Yerik | Camera OCR, ChatGPT integration, UI/UX, MainActivity , Google Maps, Places API, Room DB, Translate API |
-
----
-
-## Scoring Targets
-
-| Category | Points |
-|----------|--------|
-| Coroutine | 20 |
-| Retrofit (Download Manager) | 20 |
-| Jetpack (4 components) | 30 |
-| External App (Gallery) | 20 |
-| API × 3 (Maps + GPT + Translate) | 60 |
-| Machine Learning (ML Kit OCR) | 50 |
-| Stability | 30 |
-| **Total** | **230** |
+| Name |
+|------|
+| Sejun |
+| Yerik |
