@@ -32,9 +32,14 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     private var googleMap: GoogleMap? = null
 
     private val locationPermissionLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) { granted ->
-        if (granted) viewModel.getCurrentLocation(requireContext())
+        ActivityResultContracts.RequestMultiplePermissions()
+    ) { grants ->
+        val fineGranted = grants[Manifest.permission.ACCESS_FINE_LOCATION] == true
+        val coarseGranted = grants[Manifest.permission.ACCESS_COARSE_LOCATION] == true
+        if (fineGranted || coarseGranted) {
+            viewModel.getCurrentLocation(requireContext(), fineGranted)
+            updateMyLocationEnabled(fineGranted || coarseGranted)
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -57,6 +62,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
     override fun onMapReady(map: GoogleMap) {
         googleMap = map
+        updateMyLocationEnabled(hasLocationPermission())
         map.setOnMarkerClickListener { marker ->
             viewModel.places.value
                 ?.find { it.name == marker.title }
@@ -66,12 +72,24 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     }
 
     private fun requestLocationOrLoad() {
-        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
-            == PackageManager.PERMISSION_GRANTED
-        ) {
-            viewModel.getCurrentLocation(requireContext())
+        val fineGranted = ContextCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+        val coarseGranted = ContextCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.ACCESS_COARSE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+        if (fineGranted || coarseGranted) {
+            viewModel.getCurrentLocation(requireContext(), fineGranted)
+            updateMyLocationEnabled(true)
         } else {
-            locationPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+            locationPermissionLauncher.launch(
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+                )
+            )
         }
     }
 
@@ -92,6 +110,10 @@ class MapFragment : Fragment(), OnMapReadyCallback {
                 R.id.chipRestaurant in checkedIds -> "restaurant"
                 R.id.chipSubway in checkedIds -> "subway_station"
                 else -> return@setOnCheckedStateChangeListener
+            }
+            if (viewModel.currentLocation.value == null) {
+                requestLocationOrLoad()
+                return@setOnCheckedStateChangeListener
             }
             viewModel.searchNearby(requireContext(), type)
         }
@@ -128,6 +150,25 @@ class MapFragment : Fragment(), OnMapReadyCallback {
             putExtra(Constants.EXTRA_PLACE_CATEGORY, place.category)
         }
         startActivity(intent)
+    }
+
+    private fun hasLocationPermission(): Boolean {
+        val fineGranted = ContextCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+        val coarseGranted = ContextCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.ACCESS_COARSE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+        return fineGranted || coarseGranted
+    }
+
+    private fun updateMyLocationEnabled(enabled: Boolean) {
+        if (!isAdded || googleMap == null) return
+        if (enabled) {
+            googleMap?.isMyLocationEnabled = true
+        }
     }
 
     override fun onDestroyView() {
