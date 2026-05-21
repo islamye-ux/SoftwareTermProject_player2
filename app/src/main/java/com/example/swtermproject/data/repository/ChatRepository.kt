@@ -1,8 +1,10 @@
 package com.example.swtermproject.data.repository
 
 import android.content.Context
+import android.util.Log
 import com.example.swtermproject.BuildConfig
 import com.example.swtermproject.data.api.RetrofitClient
+import retrofit2.HttpException
 import com.example.swtermproject.data.db.AppDatabase
 import com.example.swtermproject.data.db.entity.ChatHistoryEntity
 import com.example.swtermproject.data.model.ChatMessage
@@ -30,8 +32,14 @@ class ChatRepository(context: Context) {
                 parts = listOf(GeminiPart(Constants.SYSTEM_PROMPT))
             )
         )
-        val response = api.generateContent(BuildConfig.GEMINI_API_KEY, request)
-        return response.candidates.first().content.parts.first().text
+        try {
+            val response = api.generateContent(BuildConfig.GEMINI_API_KEY, request)
+            return response.candidates.first().content.parts.first().text
+        } catch (e: HttpException) {
+            val errorBody = e.response()?.errorBody()?.string()
+            Log.e("ChatRepository", "HTTP ${e.code()} - $errorBody")
+            throw Exception("HTTP ${e.code()}: $errorBody")
+        }
     }
 
     suspend fun saveMessage(role: String, content: String) {
