@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "chat_history")
 data class ChatHistoryEntity(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    val sessionId: Long,
     val role: String,
     val content: String,
     val timestamp: Long = System.currentTimeMillis()

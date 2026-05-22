@@ -1,7 +1,8 @@
 package com.example.swtermproject.ui.camera
 
 import android.Manifest
-import android.content.Intent
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
@@ -10,15 +11,19 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.ViewModelProvider
 import com.example.swtermproject.R
 import com.example.swtermproject.databinding.ActivityCameraBinding
+import com.example.swtermproject.data.repository.SavedPhraseRepository
 import com.example.swtermproject.util.Constants
+import kotlinx.coroutines.launch
 
 class CameraActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCameraBinding
     private lateinit var viewModel: CameraViewModel
+    private lateinit var savedPhraseRepository: SavedPhraseRepository
     private var targetLanguage = Constants.DEFAULT_LANGUAGE
 
     private val cameraPermissionLauncher = registerForActivityResult(
@@ -41,6 +46,7 @@ class CameraActivity : AppCompatActivity() {
 
         targetLanguage = intent.getStringExtra(Constants.EXTRA_LANGUAGE_CODE) ?: Constants.DEFAULT_LANGUAGE
         viewModel = ViewModelProvider(this)[CameraViewModel::class.java]
+        savedPhraseRepository = SavedPhraseRepository(applicationContext)
 
         requestCameraPermissionOrStart()
         setupObservers()
@@ -89,10 +95,32 @@ class CameraActivity : AppCompatActivity() {
 
         binding.btnBack.setOnClickListener { finish() }
 
-        binding.btnUseResult.setOnClickListener {
-            val result = viewModel.translationResult.value?.translatedText ?: return@setOnClickListener
-            setResult(RESULT_OK, Intent().putExtra(Constants.EXTRA_TRANSLATION_RESULT, result))
-            finish()
+        binding.btnCopyOriginal.setOnClickListener {
+            val text = viewModel.translationResult.value?.originalText ?: return@setOnClickListener
+            copyToClipboard(getString(R.string.label_original), text)
         }
+
+        binding.btnCopyTranslated.setOnClickListener {
+            val text = viewModel.translationResult.value?.translatedText ?: return@setOnClickListener
+            copyToClipboard(getString(R.string.label_translated), text)
+        }
+
+        binding.btnSavePhrase.setOnClickListener {
+            val result = viewModel.translationResult.value ?: return@setOnClickListener
+            lifecycleScope.launch {
+                savedPhraseRepository.addPhrase(
+                    original = result.originalText,
+                    translated = result.translatedText,
+                    targetLanguage = targetLanguage
+                )
+                Toast.makeText(this@CameraActivity, R.string.saved_to_saved, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun copyToClipboard(label: String, text: String) {
+        val clipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+        clipboard.setPrimaryClip(ClipData.newPlainText(label, text))
+        Toast.makeText(this, R.string.copied, Toast.LENGTH_SHORT).show()
     }
 }
