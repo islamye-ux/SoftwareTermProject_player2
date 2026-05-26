@@ -14,6 +14,7 @@ import com.example.swtermproject.ui.camera.CameraActivity
 import com.example.swtermproject.ui.chat.ChatFragment
 import com.example.swtermproject.ui.favorite.FavoriteFragment
 import com.example.swtermproject.ui.map.MapFragment
+import com.example.swtermproject.ui.phrase.PhraseFragment
 
 import com.example.swtermproject.util.Constants
 import com.google.android.material.snackbar.Snackbar
@@ -71,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupViewPager() {
         val fragments = listOf(
-            MapFragment(), ChatFragment(), FavoriteFragment()
+            MapFragment(), ChatFragment(), FavoriteFragment(), PhraseFragment()
         )
         binding.viewPager.adapter = object : FragmentStateAdapter(this) {
             override fun getItemCount() = fragments.size
@@ -81,11 +82,11 @@ class MainActivity : AppCompatActivity() {
 
         val tabIcons = listOf(
             R.drawable.ic_map, R.drawable.ic_chat,
-            R.drawable.ic_favorite
+            R.drawable.ic_favorite, R.drawable.ic_translate
         )
         val tabLabels = listOf(
             R.string.tab_map, R.string.tab_chat,
-            R.string.tab_favorites
+            R.string.tab_favorites, R.string.tab_translate
         )
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, pos ->
             tab.setIcon(tabIcons[pos])

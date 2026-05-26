@@ -56,6 +56,17 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
         setupRecyclerView()
         setupCategoryChips()
+        binding.btnPlaceTypes.setOnClickListener {
+            val sheet = PlaceTypeBottomSheet()
+            sheet.onTypeSelected = { type ->
+                if (viewModel.currentLocation.value == null) {
+                    requestLocationOrLoad()
+                } else {
+                    viewModel.searchNearby(requireContext(), type)
+                }
+            }
+            sheet.show(childFragmentManager, "placeTypeSheet")
+        }
         setupObservers()
         requestLocationOrLoad()
     }
@@ -109,6 +120,9 @@ class MapFragment : Fragment(), OnMapReadyCallback {
                 R.id.chipGovernment in checkedIds -> "local_government_office"
                 R.id.chipRestaurant in checkedIds -> "restaurant"
                 R.id.chipSubway in checkedIds -> "subway_station"
+                R.id.chipHotel in checkedIds -> "lodging"
+                R.id.chipPolice in checkedIds -> "police"
+                R.id.chipShop in checkedIds -> "store"
                 else -> return@setOnCheckedStateChangeListener
             }
             if (viewModel.currentLocation.value == null) {

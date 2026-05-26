@@ -7,6 +7,7 @@
     <string name="tab_map">지도</string>
     <string name="tab_chat">AI 채팅</string>
     <string name="tab_favorites">저장됨</string>
+    <string name="tab_translate">번역</string>
 
 
     <!-- Drawer -->

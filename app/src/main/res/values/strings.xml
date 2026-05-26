@@ -6,6 +6,7 @@
     <string name="tab_map">Map</string>
     <string name="tab_chat">AI Chat</string>
     <string name="tab_favorites">Saved</string>
+    <string name="tab_translate">Translate</string>
 
 
     <!-- Drawer -->
