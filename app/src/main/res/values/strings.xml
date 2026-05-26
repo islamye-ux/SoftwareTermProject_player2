@@ -6,7 +6,7 @@
     <string name="tab_map">Map</string>
     <string name="tab_chat">AI Chat</string>
     <string name="tab_favorites">Saved</string>
-    <string name="tab_phrases">Phrases</string>
+
 
     <!-- Drawer -->
     <string name="drawer_open">Open navigation drawer</string>
@@ -74,13 +74,6 @@
     <string name="saved_places">Places</string>
     <string name="empty_saved_translations">No saved translations yet.</string>
 
-    <!-- Phrases -->
-    <string name="section_emergency">Emergency</string>
-    <string name="section_hospital">Hospital</string>
-    <string name="section_transport">Transport</string>
-    <string name="section_food">Food &amp; Shopping</string>
-    <string name="section_government">Government</string>
-    <string name="tap_to_copy">Tap to copy</string>
     <string name="copied">Copied!</string>
     <string name="no_rating">No rating available</string>
 </resources>
