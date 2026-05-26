@@ -1,24 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorBackground">
+    android:padding="12dp"
+    android:background="@color/colorBackground"
+    tools:context=".ui.phrase.PhraseFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp">
+
+        <Spinner
+            android:id="@+id/spinnerSource"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <ImageButton
+            android:id="@+id/btnSwap"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_rotate"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Swap languages"
+            android:tint="@color/colorTextSecondary"
+            android:layout_marginHorizontal="8dp" />
+
+        <Spinner
+            android:id="@+id/spinnerTarget"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/etInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter text"
+        android:minLines="3"
+        android:inputType="textMultiLine"
+        android:backgroundTint="@color/colorPrimaryLight"
+        android:padding="8dp" />
+
+    <Button
+        android:id="@+id/btnTranslate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Translate"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/tvOutput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAppearance="?attr/textAppearanceBody1"
+        android:padding="8dp"
+        android:background="@color/colorSurface"
+        android:textColor="@color/colorTextPrimary" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:text="@string/tap_to_copy"
-        android:textColor="@color/colorTextSecondary"
-        android:textSize="12sp" />
+        android:text="Recent translations"
+        android:textStyle="bold"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/colorTextPrimary" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPhrases"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:clipToPadding="false"
-        android:paddingBottom="8dp" />
+        android:paddingTop="8dp" />
 
 </LinearLayout>
