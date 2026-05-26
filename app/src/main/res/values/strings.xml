@@ -25,6 +25,10 @@
     <string name="btn_use_result">Use Result</string>
     <string name="label_original">Original</string>
     <string name="label_translated">Translated</string>
+    <string name="copy_original">Copy Original</string>
+    <string name="copy_translated">Copy Translation</string>
+    <string name="save_to_saved">Save</string>
+    <string name="saved_to_saved">Saved</string>
     <string name="no_text_detected">No Korean text detected. Try again.</string>
     <string name="camera_permission_required">Camera permission is required.</string>
 
@@ -33,6 +37,21 @@
     <string name="btn_send">Send</string>
     <string name="chat_welcome">Hi! I\'m KoLi, your Korea life assistant. Ask me anything about visas, healthcare, transport, or daily life in Korea!</string>
     <string name="error_network">Network error. Please check your connection.</string>
+    <string name="chat_title_default">Chat</string>
+    <string name="open_chats">Open chats</string>
+    <string name="chats_title">Chats</string>
+    <string name="search_chats">Search chats</string>
+    <string name="new_chat">New chat</string>
+    <string name="clear_chat">Clear messages</string>
+    <string name="chat_session_options">Chat options</string>
+    <string name="rename_chat">Rename chat</string>
+    <string name="delete_chat">Delete chat</string>
+    <string name="delete_chat_confirm">Delete this chat and all its messages?</string>
+    <string name="clear_chat_confirm">Clear all messages in this chat?</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="clear">Clear</string>
 
     <!-- Map -->
     <string name="chip_hospital">Hospital</string>
@@ -51,6 +70,9 @@
 
     <!-- Favorites -->
     <string name="empty_favorites">No saved places yet.\nTap ★ on any place to save it.</string>
+    <string name="saved_translations">Translations</string>
+    <string name="saved_places">Places</string>
+    <string name="empty_saved_translations">No saved translations yet.</string>
 
     <!-- Phrases -->
     <string name="section_emergency">Emergency</string>
