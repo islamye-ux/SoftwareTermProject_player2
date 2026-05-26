@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.swtermproject.R
@@ -60,6 +62,9 @@ class MainActivity : AppCompatActivity() {
             }
             item.isChecked = true
             binding.drawerLayout.closeDrawers()
+            AppCompatDelegate.setApplicationLocales(
+                LocaleListCompat.forLanguageTags(currentLanguage)
+            )
             true
         }
     }

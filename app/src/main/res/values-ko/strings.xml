@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">KoLi</string>
+    <string name="app_tagline">한국 생활의 든든한 길잡이</string>
+
+    <!-- Tabs -->
+    <string name="tab_map">지도</string>
+    <string name="tab_chat">AI 채팅</string>
+    <string name="tab_favorites">저장됨</string>
+    <string name="tab_phrases">표현집</string>
+
+    <!-- Drawer -->
+    <string name="drawer_open">탐색 메뉴 열기</string>
+    <string name="drawer_close">탐색 메뉴 닫기</string>
+    <string name="nav_language">언어</string>
+    <string name="nav_english">영어</string>
+    <string name="nav_korean">한국어</string>
+    <string name="nav_chinese">중국어</string>
+    <string name="nav_japanese">일본어</string>
+    <string name="nav_vietnamese">베트남어</string>
+
+    <!-- Camera / OCR -->
+    <string name="btn_capture">촬영</string>
+    <string name="btn_gallery">갤러리</string>
+    <string name="btn_back">뒤로</string>
+    <string name="btn_use_result">결과 사용</string>
+    <string name="label_original">원문</string>
+    <string name="label_translated">번역</string>
+    <string name="copy_original">원문 복사</string>
+    <string name="copy_translated">번역 복사</string>
+    <string name="save_to_saved">저장</string>
+    <string name="saved_to_saved">저장됨</string>
+    <string name="no_text_detected">한국어 텍스트를 인식하지 못했습니다. 다시 시도하세요.</string>
+    <string name="camera_permission_required">카메라 권한이 필요합니다.</string>
+
+    <!-- Chat -->
+    <string name="hint_message">한국 생활에 대해 무엇이든 물어보세요…</string>
+    <string name="btn_send">전송</string>
+    <string name="chat_welcome">안녕하세요! 저는 KoLi예요. 비자, 의료, 교통, 한국 일상생활에 대해 무엇이든 물어보세요!</string>
+    <string name="error_network">네트워크 오류. 연결 상태를 확인하세요.</string>
+    <string name="chat_title_default">채팅</string>
+    <string name="open_chats">채팅 목록</string>
+    <string name="chats_title">채팅 목록</string>
+    <string name="search_chats">채팅 검색</string>
+    <string name="new_chat">새 채팅</string>
+    <string name="clear_chat">메시지 지우기</string>
+    <string name="chat_session_options">채팅 옵션</string>
+    <string name="rename_chat">이름 변경</string>
+    <string name="delete_chat">채팅 삭제</string>
+    <string name="delete_chat_confirm">이 채팅과 모든 메시지를 삭제할까요?</string>
+    <string name="clear_chat_confirm">이 채팅의 모든 메시지를 지울까요?</string>
+    <string name="cancel">취소</string>
+    <string name="save">저장</string>
+    <string name="delete">삭제</string>
+    <string name="clear">지우기</string>
+
+    <!-- Map -->
+    <string name="chip_hospital">병원</string>
+    <string name="chip_pharmacy">약국</string>
+    <string name="chip_government">관공서</string>
+    <string name="chip_restaurant">식당</string>
+    <string name="chip_subway">지하철</string>
+    <string name="location_permission_required">주변 장소를 찾으려면 위치 권한이 필요합니다.</string>
+
+    <!-- Place Detail -->
+    <string name="btn_directions">길 찾기</string>
+    <string name="btn_favorite_add">장소 저장</string>
+    <string name="btn_favorite_remove">삭제</string>
+    <string name="place_saved">장소가 저장되었습니다!</string>
+    <string name="place_removed">저장된 장소에서 제거되었습니다.</string>
+
+    <!-- Favorites -->
+    <string name="empty_favorites">저장된 장소가 없습니다.\n장소에서 ★을 탭하여 저장하세요.</string>
+    <string name="saved_translations">번역</string>
+    <string name="saved_places">장소</string>
+    <string name="empty_saved_translations">저장된 번역이 없습니다.</string>
+
+    <!-- Phrases -->
+    <string name="section_emergency">응급</string>
+    <string name="section_hospital">병원</string>
+    <string name="section_transport">교통</string>
+    <string name="section_food">음식 &amp; 쇼핑</string>
+    <string name="section_government">관공서</string>
+    <string name="tap_to_copy">탭하여 복사</string>
+    <string name="copied">복사됨!</string>
+    <string name="no_rating">평점 없음</string>
+</resources>
