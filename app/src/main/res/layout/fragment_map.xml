@@ -54,16 +54,53 @@
                 android:text="@string/chip_subway"
                 style="@style/Widget.Material3.Chip.Filter" />
 
+            <!-- Newly added important POI chips -->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipHotel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hotel"
+                style="@style/Widget.Material3.Chip.Filter" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPolice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Police"
+                style="@style/Widget.Material3.Chip.Filter" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipShop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shops"
+                style="@style/Widget.Material3.Chip.Filter" />
+
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
 
     <!-- Map (takes 60% of height) -->
-    <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3" />
+        android:layout_weight="3">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnPlaceTypes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_gravity="end|top"
+            android:contentDescription="Place types"
+            android:src="@android:drawable/ic_menu_more" />
+
+    </FrameLayout>
 
     <ProgressBar
         android:id="@+id/progressBar"
