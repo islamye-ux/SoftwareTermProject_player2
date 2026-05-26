@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.swtermproject.R
+import com.example.swtermproject.databinding.BottomSheetPlaceTypesBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.android.synthetic.main.bottom_sheet_place_types.view.*
 
 class PlaceTypeBottomSheet : BottomSheetDialogFragment() {
+
+    private var _binding: BottomSheetPlaceTypesBinding? = null
+    private val binding get() = _binding!!
 
     var onTypeSelected: ((String) -> Unit)? = null
 
@@ -115,18 +117,18 @@ class PlaceTypeBottomSheet : BottomSheetDialogFragment() {
         "Zoo" to "zoo"
     )
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.bottom_sheet_place_types, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = BottomSheetPlaceTypesBinding.inflate(inflater, container, false)
 
         adapter = PlaceTypeAdapter(placeTypes) { _, type ->
             onTypeSelected?.invoke(type)
             dismiss()
         }
 
-        view.rvPlaceTypes.layoutManager = LinearLayoutManager(context)
-        view.rvPlaceTypes.adapter = adapter
+        binding.rvPlaceTypes.layoutManager = LinearLayoutManager(context)
+        binding.rvPlaceTypes.adapter = adapter
 
-        view.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean = true
             override fun onQueryTextChange(newText: String?): Boolean {
                 adapter.filter(newText ?: "")
@@ -134,6 +136,11 @@ class PlaceTypeBottomSheet : BottomSheetDialogFragment() {
             }
         })
 
-        return view
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
