@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.swtermproject.BuildConfig
 import com.example.swtermproject.data.api.RetrofitClient
 import com.example.swtermproject.data.db.entity.SavedPhraseEntity
 import com.example.swtermproject.data.repository.SavedPhraseRepository
@@ -14,7 +15,7 @@ class TranslatorViewModel(application: Application) : AndroidViewModel(applicati
 
     private val repo = SavedPhraseRepository(application)
     private val api = RetrofitClient.translateApi
-    private val apiKey = application.getString(com.example.swtermproject.R.string.google_translate_api_key)
+    private val apiKey = BuildConfig.TRANSLATE_API_KEY
 
     val translated = MutableLiveData<String>()
     val error = MutableLiveData<String?>()
